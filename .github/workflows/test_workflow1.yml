@@ -1,0 +1,26 @@
+name: workflow test python
+
+jobs:
+  build:
+    name: test command
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Display hello world pwsh
+        run: |
+          write-host "hello world pwsh"
+          $PSVersionTable
+        shell: pwsh
+
+      - name: write hello world powershell
+        run: |
+          write-host "hello world pwsh"
+          $PSVersionTable > test.txt
+        shell: powershell
+
+      - name: run python version
+        run: python --version > test_python.txt
+        shell: pwsh
